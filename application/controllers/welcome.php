@@ -19,7 +19,15 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+        $query = $this->db->get('testForm');
+
+        $name = "";
+        foreach ($query->result() as $row)
+        {
+            $name = $row->name;
+        }
+        $data['name'] = $name;
+		$this->load->view('welcome_message',$data);
 	}
 }
 
