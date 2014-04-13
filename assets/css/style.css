@@ -87,7 +87,7 @@ form, fieldset{ margin-bottom: 20px; }
 
 button, input[type="submit"], input[type="reset"], input[type="button"] { 
 	margin: 0px; padding: 7px 13px; display: inline-block; font-size: 12px; 
-	font-weight: bold; cursor: pointer; border-width: 0px; border-style: solid; }
+	font-weight: bold; cursor: pointer; border-width: 0px; border-style: solid; background-color:#ee7b38;padding:5px 10px;color:#fff;text-decoration:none;}
 	
 /*	
 button, input[type="submit"], input[type="reset"], input[type="button"] { 

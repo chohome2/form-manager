@@ -3,22 +3,22 @@
 class Account extends CI_Controller {
     public function index()
     {
-        $this->load->view('header');
-        $this->load->view('account_list');
-        $this->load->view('footer');
+        $this->load_view('account_list');
     }
 
     public function create()
     {
-        $this->load->view('header');
-        $this->load->view('account_data');
-        $this->load->view('footer');
+        $this->load_view('account_data');
     }
 
     public function modify($account_id)
     {
-        $this->load->view('header');
-        $this->load->view('account_data');
-        $this->load->view('footer');
+        $this->load_view('account_data');
+    }
+
+    public function logout()
+    {
+        $this->session->unset_userdata('logged_in');
+        redirect('/login', 'refresh');
     }
 }

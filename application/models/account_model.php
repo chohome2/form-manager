@@ -1,7 +1,6 @@
 <?php
 class Account_model extends CI_Model {
-    function __construct()
-    {
+    function __construct() {
         parent::__construct();
     }
 
@@ -9,7 +8,7 @@ class Account_model extends CI_Model {
         $this->db->from('fm_account')->where(array('account_id' => $id, 'account_pw' => $pw));
         $query = $this->db->get();
 
-        if($query->num_rows() == 1) return true;
+        if($query->num_rows() == 1) return $query->result();
         return false;
     }
 }

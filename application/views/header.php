@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=880">
 <title>신청폼 관리</title>
 <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 
 
@@ -25,7 +26,7 @@
 			<li><a href="backup.php">디비백업</a></li>
 			<li><a href="doc.php">도큐먼트</a></li>
 		</ul>
-		<div class="loginfo"><a href="#">로그아웃</a></div>
+		<div class="loginfo"><a href="/account/logout">로그아웃</a></div>
 	</div>
 </div>
 

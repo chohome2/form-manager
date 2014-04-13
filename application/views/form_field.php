@@ -1,6 +1,6 @@
 <ul class="submenu">
     <li><a href="/form">신청폼 리스트</a></li>
-    <li><a href="/form/setting">신청폼 생성/설정</a></li>
+    <li><a href="/form/setting/new">신청폼 생성</a></li>
     <li class="active"><a href="/form/field">공통환경설정</a></li>
 </ul>
 

@@ -57,6 +57,12 @@ class CI_Controller {
 	{
 		return self::$instance;
 	}
+
+    public function load_view($view, $vars = array()) {
+        $this->load->view('header', $vars);
+        $this->load->view($view, $vars);
+        $this->load->view('footer');
+    }
 }
 // END Controller class
 
