@@ -8,14 +8,14 @@
 
 	<h2>센터신청폼 <span class="info">(오늘 신청자/전체 신청자)</span><span class="viewall"></span></h2> 
 	<table class="formlist">
-		<tr><td><a href="data_list.php">메인센터 참가신청</a> <span class="info">(12/456)</span></td><td><a href="/form/setting/2">설정</a></td></tr>
+		<tr><td><a href="/form_data/form/1">메인센터 참가신청</a> <span class="info">(12/456)</span></td><td><a href="/form/setting/1">설정</a></td></tr>
 		<tr><td><a href="data_list.php">한국지역센터 참가신청</a> <span class="info">(5/126)</span></td><td><a href="form_setting.php">설정</a></td></tr>
 		<tr><td><a href="data_list.php">지역센터 방문상담예약</a> <span class="info">(71/264)</span></td><td><a href="form_setting.php">설정</a></td></tr>
 	</table>
 
 	<h2>참가신청폼<span class="viewall"></span></h2> 
 	<table class="formlist">
-		<tr><td><a href="data_list.php">대학생캠프 참가신청</a></td><td><a href="form_setting.php">설정</a></td></tr>
+		<tr><td><a href="/form_data/form/2">대학생캠프 참가신청</a></td><td><a href="/form/setting/2">설정</a></td></tr>
 		<tr><td><a href="data_list.php">청소년캠프 참가신청</a></td><td><a href="form_setting.php">설정</a></td></tr>
 		<tr><td><a href="data_list.php">교원직무연수 참가신청</a></td><td><a href="form_setting.php">설정</a></td></tr>
 		<tr><td><a href="data_list.php">교원생활연수 참가신청</a></td><td><a href="form_setting.php">설정</a></td></tr>
@@ -30,7 +30,7 @@
 	
 	<h2>1:1 문의폼<span class="viewall">+ 전체보기</span></h2>
 	<table class="formlist">
-		<tr><td><a href="data_reply.php">마음수련홈페이지 한국 문의</a></td><td><a href="form_setting.php">설정</a></td></tr>
+		<tr><td><a href="/form_data/form/3">마음수련홈페이지 한국 문의</a></td><td><a href="/form/setting/3">설정</a></td></tr>
 		<tr><td><a href="data_reply.php">대학생캠프 문의</a></td><td><a href="form_setting.php">설정</a></td></tr>
 		<tr><td><a href="data_reply.php">청소년캠프 문의</a></td><td><a href="form_setting.php">설정</a></td></tr>
 		<tr><td><a href="data_reply.php">교원직무연수 문의</a></td><td><a href="form_setting.php">설정</a></td></tr>

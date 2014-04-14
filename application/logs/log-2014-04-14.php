@@ -4078,3 +4078,93 @@ DEBUG - 2014-04-14 04:30:46 --> File loaded: application/views/form_setting.php
 DEBUG - 2014-04-14 04:30:46 --> File loaded: application/views/footer.php
 DEBUG - 2014-04-14 04:30:46 --> Final output sent to browser
 DEBUG - 2014-04-14 04:30:46 --> Total execution time: 6.3715
+DEBUG - 2014-04-14 05:09:12 --> Config Class Initialized
+DEBUG - 2014-04-14 05:09:12 --> Hooks Class Initialized
+DEBUG - 2014-04-14 05:09:12 --> Utf8 Class Initialized
+DEBUG - 2014-04-14 05:09:12 --> UTF-8 Support Enabled
+DEBUG - 2014-04-14 05:09:12 --> URI Class Initialized
+DEBUG - 2014-04-14 05:09:12 --> Router Class Initialized
+DEBUG - 2014-04-14 05:09:12 --> Output Class Initialized
+DEBUG - 2014-04-14 05:09:12 --> Security Class Initialized
+DEBUG - 2014-04-14 05:09:12 --> Input Class Initialized
+DEBUG - 2014-04-14 05:09:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-04-14 05:09:12 --> Language Class Initialized
+DEBUG - 2014-04-14 05:09:13 --> Loader Class Initialized
+DEBUG - 2014-04-14 05:09:13 --> Helper loaded: url_helper
+DEBUG - 2014-04-14 05:09:13 --> Database Driver Class Initialized
+DEBUG - 2014-04-14 05:09:13 --> Session Class Initialized
+DEBUG - 2014-04-14 05:09:13 --> Helper loaded: string_helper
+DEBUG - 2014-04-14 05:09:13 --> Session routines successfully run
+DEBUG - 2014-04-14 05:09:13 --> Controller Class Initialized
+DEBUG - 2014-04-14 05:09:13 --> Model Class Initialized
+DEBUG - 2014-04-14 05:09:13 --> Model Class Initialized
+DEBUG - 2014-04-14 05:09:13 --> Model Class Initialized
+DEBUG - 2014-04-14 05:09:13 --> Model Class Initialized
+DEBUG - 2014-04-14 05:09:13 --> Helper loaded: form_helper
+DEBUG - 2014-04-14 05:09:13 --> Form Validation Class Initialized
+DEBUG - 2014-04-14 05:09:13 --> File loaded: application/views/header.php
+ERROR - 2014-04-14 05:09:13 --> Severity: Notice  --> Undefined variable: form /Users/park/project/form-manager/application/views/form_setting.php 12
+ERROR - 2014-04-14 05:09:13 --> Severity: Notice  --> Trying to get property of non-object /Users/park/project/form-manager/application/views/form_setting.php 12
+ERROR - 2014-04-14 05:09:13 --> Severity: Notice  --> Undefined variable: form /Users/park/project/form-manager/application/views/form_setting.php 15
+ERROR - 2014-04-14 05:09:13 --> Severity: Notice  --> Trying to get property of non-object /Users/park/project/form-manager/application/views/form_setting.php 15
+ERROR - 2014-04-14 05:09:13 --> Severity: Notice  --> Undefined variable: form /Users/park/project/form-manager/application/views/form_setting.php 16
+ERROR - 2014-04-14 05:09:13 --> Severity: Notice  --> Trying to get property of non-object /Users/park/project/form-manager/application/views/form_setting.php 16
+ERROR - 2014-04-14 05:09:13 --> Severity: Notice  --> Undefined variable: form /Users/park/project/form-manager/application/views/form_setting.php 17
+ERROR - 2014-04-14 05:09:13 --> Severity: Notice  --> Trying to get property of non-object /Users/park/project/form-manager/application/views/form_setting.php 17
+ERROR - 2014-04-14 05:09:13 --> Severity: Notice  --> Undefined variable: form /Users/park/project/form-manager/application/views/form_setting.php 18
+ERROR - 2014-04-14 05:09:13 --> Severity: Notice  --> Trying to get property of non-object /Users/park/project/form-manager/application/views/form_setting.php 18
+DEBUG - 2014-04-14 05:09:13 --> File loaded: application/views/form_setting.php
+DEBUG - 2014-04-14 05:09:13 --> File loaded: application/views/footer.php
+DEBUG - 2014-04-14 05:09:13 --> Final output sent to browser
+DEBUG - 2014-04-14 05:09:13 --> Total execution time: 1.0593
+DEBUG - 2014-04-14 05:09:26 --> Config Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Hooks Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Utf8 Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> UTF-8 Support Enabled
+DEBUG - 2014-04-14 05:09:26 --> URI Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Router Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Output Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Security Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Input Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-04-14 05:09:26 --> Language Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Loader Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Helper loaded: url_helper
+DEBUG - 2014-04-14 05:09:26 --> Database Driver Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Session Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Helper loaded: string_helper
+DEBUG - 2014-04-14 05:09:26 --> Session routines successfully run
+DEBUG - 2014-04-14 05:09:26 --> Controller Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Model Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Model Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Model Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Model Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Helper loaded: form_helper
+DEBUG - 2014-04-14 05:09:26 --> Form Validation Class Initialized
+DEBUG - 2014-04-14 05:09:26 --> Language file loaded: language/english/form_validation_lang.php
+DEBUG - 2014-04-14 05:09:26 --> XSS Filtering completed
+ERROR - 2014-04-14 05:09:26 --> Severity: Warning  --> Invalid argument supplied for foreach() /Users/park/project/form-manager/application/controllers/form.php 86
+ERROR - 2014-04-14 05:09:26 --> Severity: Warning  --> Invalid argument supplied for foreach() /Users/park/project/form-manager/application/controllers/form.php 86
+DEBUG - 2014-04-14 05:09:27 --> Config Class Initialized
+DEBUG - 2014-04-14 05:09:27 --> Hooks Class Initialized
+DEBUG - 2014-04-14 05:09:27 --> Utf8 Class Initialized
+DEBUG - 2014-04-14 05:09:27 --> UTF-8 Support Enabled
+DEBUG - 2014-04-14 05:09:27 --> URI Class Initialized
+DEBUG - 2014-04-14 05:09:27 --> Router Class Initialized
+DEBUG - 2014-04-14 05:09:27 --> Output Class Initialized
+DEBUG - 2014-04-14 05:09:27 --> Security Class Initialized
+DEBUG - 2014-04-14 05:09:27 --> Input Class Initialized
+DEBUG - 2014-04-14 05:09:27 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-04-14 05:09:27 --> Language Class Initialized
+DEBUG - 2014-04-14 05:09:27 --> Loader Class Initialized
+DEBUG - 2014-04-14 05:09:27 --> Helper loaded: url_helper
+DEBUG - 2014-04-14 05:09:27 --> Database Driver Class Initialized
+DEBUG - 2014-04-14 05:09:27 --> Session Class Initialized
+DEBUG - 2014-04-14 05:09:27 --> Helper loaded: string_helper
+DEBUG - 2014-04-14 05:09:27 --> Session routines successfully run
+DEBUG - 2014-04-14 05:09:27 --> Controller Class Initialized
+DEBUG - 2014-04-14 05:09:27 --> File loaded: application/views/header.php
+DEBUG - 2014-04-14 05:09:27 --> File loaded: application/views/form_setting_ok.php
+DEBUG - 2014-04-14 05:09:27 --> File loaded: application/views/footer.php
+DEBUG - 2014-04-14 05:09:27 --> Final output sent to browser
+DEBUG - 2014-04-14 05:09:27 --> Total execution time: 0.3715

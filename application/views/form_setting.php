@@ -20,7 +20,7 @@
     <?php
     foreach ($classify_list->result() as $row)
     {
-        echo '<option value="'.$row->id.'">'.$row->name.'</option>';
+        echo '<option value="'.$row->name.'">'.$row->name.'</option>';
     }
     ?>
                 </select><br> + 분류추가 : <input type="text" id="classifyName"> <a href="#" class="buttongray" id="addFormClassify">추가</a></td></tr>
@@ -29,7 +29,7 @@
                 <?php
                 foreach ($field_list->result() as $row)
                 {
-                    echo '<input type="checkbox" name="use_field[]" value="'.$row->id.'">'.$row->readable_name.' ';
+                    echo '<input type="checkbox" name="use_field[]" value="'.$row->name."\t".$row->readable_name.'">'.$row->readable_name.' ';
                 }
                 ?>
             </td></tr>
@@ -38,7 +38,7 @@
                 <?php
                 foreach ($field_list->result() as $row)
                 {
-                    echo '<input type="checkbox" name="view_field[]" value="'.$row->id.'">'.$row->readable_name.' ';
+                    echo '<input type="checkbox" name="view_field[]" value="'.$row->name."\t".$row->readable_name.'">'.$row->readable_name.' ';
                 }
                 ?>
             </td></tr>

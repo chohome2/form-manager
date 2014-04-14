@@ -1,6 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Form extends CI_Controller {
+    public function __construct()
+    {
+        parent::__construct();
+        if (!$this->session->userdata('logged_in'))
+            redirect('/login','redirect');
+    }
+
     public function index()
     {
         $this->load_view('form_list');
@@ -11,7 +18,13 @@ class Form extends CI_Controller {
         $this->load->model('form_classify_model','',TRUE);
         $this->load->model('form_field_model','',TRUE);
         $this->load->model('form_model','',TRUE);
+        $this->load->model('account_model','',TRUE);
         $this->load->helper(array('form'));
+
+        if(!$this->account_model->isRole('폼설정',$id)) {
+            $this->load_view('no_role');
+            return;
+        }
 
         $this->load->library('form_validation');
 
@@ -84,7 +97,7 @@ class Form extends CI_Controller {
     private function makeCSV($data) {
         $ret = '';
         foreach($data as $value) {
-            $ret .= $value.',';
+            $ret .= $value."\t";
         }
         return substr($ret,0,-1);
     }

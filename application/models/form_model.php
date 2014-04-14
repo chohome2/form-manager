@@ -14,5 +14,11 @@ class Form_model extends CI_Model {
         foreach($query->result() as $row)
             return $row;
     }
+
+    function getAllForm() {
+        $this->db->from('fm_form');
+        $query = $this->db->get();
+        return $query;
+    }
 }
 ?>
