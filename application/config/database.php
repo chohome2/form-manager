@@ -64,6 +64,22 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+$db['localhost']['hostname'] = 'localhost';
+$db['localhost']['username'] = 'develop';
+$db['localhost']['password'] = '123maum$%^';
+$db['localhost']['database'] = 'cs.maum.org';
+$db['localhost']['dbdriver'] = 'mysql';
+$db['localhost']['dbprefix'] = '';
+$db['localhost']['pconnect'] = TRUE;
+$db['localhost']['db_debug'] = TRUE;
+$db['localhost']['cache_on'] = FALSE;
+$db['localhost']['cachedir'] = '';
+$db['localhost']['char_set'] = 'utf8';
+$db['localhost']['dbcollat'] = 'utf8_general_ci';
+$db['localhost']['swap_pre'] = '';
+$db['localhost']['autoinit'] = TRUE;
+$db['localhost']['stricton'] = FALSE;
+
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
