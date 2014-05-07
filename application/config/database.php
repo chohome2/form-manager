@@ -64,7 +64,7 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
-$db['localhost']['hostname'] = 'localhost';
+$db['localhost']['hostname'] = '211.60.103.140';
 $db['localhost']['username'] = 'develop';
 $db['localhost']['password'] = '123maum$%^';
 $db['localhost']['database'] = 'cs.maum.org';
@@ -80,6 +80,7 @@ $db['localhost']['swap_pre'] = '';
 $db['localhost']['autoinit'] = TRUE;
 $db['localhost']['stricton'] = FALSE;
 
+//commit test
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
