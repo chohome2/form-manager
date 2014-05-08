@@ -18,7 +18,6 @@ class User_Form extends CI_Controller {
 
     public function regist()
     {
-        $this->load->model('form_data_model','',TRUE);
         $data = array(
             'form_id' => $this->input->post('form_id'),
             'form_name' => $this->input->post('form_name'),

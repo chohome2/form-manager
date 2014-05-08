@@ -15,13 +15,9 @@ class Form extends CI_Controller {
 
     public function setting($id)
     {
-        $this->load->model('form_classify_model','',TRUE);
-        $this->load->model('form_field_model','',TRUE);
-        $this->load->model('form_model','',TRUE);
-        $this->load->model('account_model','',TRUE);
         $this->load->helper(array('form'));
 
-        if(!$this->account_model->isRole('폼설정',$id)) {
+        if($id != "new" && !$this->account_model->isRole('폼설정',$id)) {
             $this->load_view('no_role');
             return;
         }
@@ -70,16 +66,15 @@ class Form extends CI_Controller {
                 'is_use_pay' => $this->input->post('ispay')?1:0,
                 'pay_account' => $this->input->post('payaccount')
             );
-            //print_r($data);
-            $this->load->model('form_model','',TRUE);
-            $this->form_model->insertForm($data);
+
+            $this->form_model->upsertForm($data,$id);
             redirect('form/setting_ok','refresh');
         }
     }
 
     public function setting_ok()
     {
-        $this->load_view('form_setting_ok');
+        $this->load_view('form_submit_ok',array("message"=>"폼 설정이 완료되었습니다.","path"=>"/form"));
     }
 
 
@@ -90,7 +85,6 @@ class Form extends CI_Controller {
 
     public function addClassify($name)
     {
-        $this->load->model('form_classify_model','',TRUE);
         $this->form_classify_model->addFormClassify(urldecode($name));
     }
 

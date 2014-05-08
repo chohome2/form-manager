@@ -4,8 +4,14 @@ class Form_model extends CI_Model {
         parent::__construct();
     }
 
-    function insertForm($data) {
-        $this->db->insert('fm_form', $data);
+    function upsertForm($data,$id) {
+        if($id == 'new') {
+            $this->db->insert('fm_form', $data);
+        }
+        else {
+            $this->db->where('id', $id);
+            $this->db->update('fm_form', $data);
+        }
         return false;
     }
 

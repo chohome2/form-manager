@@ -10,7 +10,6 @@ class Login extends CI_Controller {
     function index()
     {
         $this->load->helper(array('form'));
-        $this->load->model('account_model','',TRUE);
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('account_id', 'Username', 'trim|required|xss_clean');

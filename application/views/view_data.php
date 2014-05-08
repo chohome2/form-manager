@@ -1,8 +1,3 @@
-<ul class="submenu">
-    <li><a href="/form">신청폼 리스트</a></li>
-    <li <?php if($id == 'new') echo 'class="active"';?>><a href="/form/setting/new">신청폼 생성</a></li>
-    <li><a href="/form/field">공통환경설정</a></li>
-</ul>
 <div id="content">
     <h1><?php echo $form_data->form_name?></h1>
     <div class="block">
@@ -28,7 +23,7 @@
                 </td></tr>
 
         </table>
-        <a href="data_modify.php" class="buttongray">정보수정</a> <a href="" class="buttongray">인쇄</a>
+        <a href="/form_data/modify/detail/<?php echo $form_data["id"]?>" class="buttongray">정보수정</a>
     </div>
     <div class="block">
         <a href="" class="button">무통장 입금확인</a> <a href="" class="button">무통장 입금대기</a> <a href="" class="button">신청/결제 취소</a>

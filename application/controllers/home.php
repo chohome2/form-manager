@@ -11,14 +11,32 @@ class Home extends CI_Controller {
 
     public function index()
 	{
-        $this->load->model('form_data_model','',TRUE);
-        $this->load->model('account_model','',TRUE);
-
         $account = $this->session->userdata('logged_in');
         $data = array(
-            'form_data' => $this->form_data_model->getFormDatas($this->account_model->getAccountRolesWithRole('열람',$account['id']))
+            'status' => '미처리',
+            'form_data' => $this->form_data_model->getFormDatasWithStatus($this->account_model->getAccountRolesWithRole('열람',$account['id']),'미처리')
         );
-        $this->load_view('main',$data);
+        $this->load_view('main_list',$data);
 	}
+
+    public function check()
+    {
+        $account = $this->session->userdata('logged_in');
+        $data = array(
+            'status' => '확인',
+            'form_data' => $this->form_data_model->getFormDatasWithStatus($this->account_model->getAccountRolesWithRole('열람',$account['id']),'확인')
+        );
+        $this->load_view('main_list',$data);
+    }
+
+    public function complete()
+    {
+        $account = $this->session->userdata('logged_in');
+        $data = array(
+            'status' => '처리',
+            'form_data' => $this->form_data_model->getFormDatasWithStatus($this->account_model->getAccountRolesWithRole('열람',$account['id']),'처리')
+        );
+        $this->load_view('main_list',$data);
+    }
 
 }

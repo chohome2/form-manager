@@ -9,9 +9,11 @@ class Form_Data_model extends CI_Model {
         return false;
     }
 
-    function getFormDatas($roles) {
+    function getFormDatasWithStatus($roles,$status) {
         $this->db->from('fm_form_data');
+        $this->db->where('process_status',$status);
         $this->db->where_in('form_id',$roles);
+        $this->db->order_by('regist_date','desc');
         $query = $this->db->get();
 
         return $query;

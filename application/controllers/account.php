@@ -10,7 +10,6 @@ class Account extends CI_Controller {
 
     public function index()
     {
-        $this->load->model('account_model','',TRUE);
         $data = array(
             'account_role_list' => $this->account_model->getAccountRoles(),
             'account_list' => $this->account_model->getAccounts()
@@ -20,8 +19,6 @@ class Account extends CI_Controller {
 
     public function setting($id)
     {
-        $this->load->model('form_model','',TRUE);
-        $this->load->model('account_model','',TRUE);
         $this->load->helper(array('form'));
 
         $this->load->library('form_validation');
