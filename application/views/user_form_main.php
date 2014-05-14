@@ -5,9 +5,6 @@
 <body>
 <form action="/user_form/regist_rest" method="post" accept-charset="utf-8">
     <input type="hidden" name="form_id" value="1">
-    <input type="hidden" name="form_name" value="메인센터 참가신청">
-    <input type="hidden" name="form_template" value="1">
-    <input type="hidden" name="classify" value="1기">
     이름 : <input type="text" name="user_name"><br>
     성별 : <input type="text" name="gender"><br>
     생년월일 : <input type="text" name="birth"><br>

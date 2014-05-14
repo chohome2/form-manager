@@ -26,7 +26,10 @@ class Form_Data_model extends CI_Model {
     }
 
     function getFormDataWithFormId($id) {
-        return $this->db->get_where('fm_form_data',array('form_id' => $id));
+        $this->db->from('fm_form_data');
+        $this->db->where('form_id',$id);
+        $this->db->order_by('regist_date','desc');
+        return $this->db->get();
     }
 
     function updateFormData($id,$data) {

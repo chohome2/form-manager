@@ -19,14 +19,32 @@ class User_Form extends CI_Controller {
     public function regist()
     {
         $data = array();
-
+//TODO 아래처럼 데이터 받는건 임시, 테이블 필드 하나하나 수동으로 받아야 함
         foreach($this->input->post() as $key => $val)
         {
             $data[$key] = $val;
         }
 
+        if(!isset($data['form_id'])) {
+            echo 'fail';
+            return;
+        }
+
+        $form = $this->form_model->getForm($data['form_id']);
+
+        $data['form_name'] = $form->name;
+        $data['form_template'] = $form->template;
+        $data['classify'] = $form->classify;
+        $data['regist_date'] = date('Y-m-d H:i:s');
+        $data['process_status'] = '미처리';
         $this->form_data_model->insertFormData($data);
-        echo 'rest success!!';
+
+        //가입 문자 유저에게 보내기
+        if($form->is_send_sms_to_user == 1 && isset($data['phone']) && isset($data['sms_ok']) && $data['sms_ok'] == 1) {
+            $content = str_replace('[NAME]',$data['user_name'],$form->sms_content_to_user);
+            $this->sms_model->insertSmsData(array($data['phone']),$content,$form->sms_number_to_user);
+        }
+        echo 'success';
     }
 
     public function regist_rest()
@@ -37,8 +55,7 @@ class User_Form extends CI_Controller {
         {
             $data[$key] = $val;
         }
-        //TODO 기본 필드 채우기(상태, 등록날짜 등등)
-        $this->CallAPI("POST","http://localhost/user_form/regist",$data);
+        echo $this->CallAPI("POST","http://localhost/user_form/regist",$data);
         //$this->form_data_model->insertFormData($data);
 
         //echo 'success!!';

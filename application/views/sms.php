@@ -14,7 +14,7 @@
                     </ul>
                 </td>
                 <td>
-                    <span class="info">전체선택</span>
+                    <span class="info">전체선택 / 전체선택해제</span>
                     <ul>
                         <?php
                         foreach($classify_list->result() as $row) {
@@ -24,7 +24,7 @@
                     </ul>
                 </td>
                 <td>
-                    <span class="info">전체선택 / 감추기</span>
+                    <span class="info">전체선택 / 전체선택해제</span>
                     <ul id="phone-list">
                     </ul>
                 </td>
