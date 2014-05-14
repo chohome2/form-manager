@@ -485,7 +485,11 @@
       <created>1400073435548</created>
       <updated>1400073435548</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="문자보내기&#10;rest data 수신 추가&#10;">
+      <created>1400073525780</created>
+      <updated>1400073525780</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
