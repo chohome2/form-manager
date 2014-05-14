@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d2d3aee-cea3-4e01-ae46-24e4a8e0a848" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/sms.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/sms.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/sms_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/autoload.php" afterPath="$PROJECT_DIR$/application/config/autoload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/data_list.php" afterPath="$PROJECT_DIR$/application/views/data_list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/form_data_model.php" afterPath="$PROJECT_DIR$/application/models/form_data_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/form_model.php" afterPath="$PROJECT_DIR$/application/models/form_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/header.php" afterPath="$PROJECT_DIR$/application/views/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/user_form.php" afterPath="$PROJECT_DIR$/application/controllers/user_form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/user_form_main.php" afterPath="$PROJECT_DIR$/application/views/user_form_main.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="form-manager.iws" />
@@ -57,7 +46,7 @@
       <file leaf-file-name="user_form.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/user_form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="8" selection-start="875" selection-end="875" vertical-scroll-proportion="0.63054186" vertical-offset="216" max-vertical-offset="1230">
+            <state line="40" column="8" selection-start="875" selection-end="875" vertical-scroll-proportion="0.63261944" vertical-offset="216" max-vertical-offset="1230">
               <folding />
             </state>
           </provider>
@@ -488,13 +477,18 @@
       <created>1399536657543</created>
       <updated>1399536657543</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="문자보내기&#10;rest data 수신 추가">
+      <created>1400073343802</created>
+      <updated>1400073343802</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -510,7 +504,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23607038" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -532,7 +525,8 @@
     <MESSAGE value="database config 변경" />
     <MESSAGE value="database config 변경2&#10;" />
     <MESSAGE value="폼 수정, 폼데이터 수정기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="폼 수정, 폼데이터 수정기능 추가" />
+    <MESSAGE value="문자보내기&#10;rest data 수신 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="문자보내기&#10;rest data 수신 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -700,7 +694,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="29" selection-start="846" selection-end="846" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="570" />
+        <state line="19" column="29" selection-start="846" selection-end="846" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="570">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/account_model.php">
@@ -819,7 +815,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/user_form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="8" selection-start="875" selection-end="875" vertical-scroll-proportion="0.63054186" vertical-offset="216" max-vertical-offset="1230">
+        <state line="40" column="8" selection-start="875" selection-end="875" vertical-scroll-proportion="0.63261944" vertical-offset="216" max-vertical-offset="1230">
           <folding />
         </state>
       </provider>
