@@ -481,7 +481,11 @@
       <created>1400073343802</created>
       <updated>1400073343802</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="문자보내기&#10;rest data 수신 추가&#10;">
+      <created>1400073435548</created>
+      <updated>1400073435548</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -526,7 +530,8 @@
     <MESSAGE value="database config 변경2&#10;" />
     <MESSAGE value="폼 수정, 폼데이터 수정기능 추가" />
     <MESSAGE value="문자보내기&#10;rest data 수신 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="문자보내기&#10;rest data 수신 추가" />
+    <MESSAGE value="문자보내기&#10;rest data 수신 추가&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="문자보내기&#10;rest data 수신 추가&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
