@@ -22,7 +22,11 @@
             for($i=0;$i<count($view_fields);$i++) {
                 echo '<td>'.$row[$view_fields[$i++]].'</td>';
             }
-            echo '<td><a href="/form_data/detail/'.$row['id'].'">보기</a> / <a href="data_modify.php">수정</a></td></tr>';
+            if($row['form_template'] == 1)
+                echo '<td><a href="/form_data/detail/'.$row['id'].'">보기</a>';
+            else if($row['form_template'] == 2 || $row['form_template'] == 3)
+                echo '<td><a href="/form_data/inquiry/'.$row['id'].'">보기</a>';
+            echo ' / <a href="/form_data/modify/detail/'.$row['id'].'">수정</a></td></tr>';
         }
         ?>
 

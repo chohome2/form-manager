@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
-<form action="/user_form/regist" method="post" accept-charset="utf-8">
+<form action="/user_form/regist_rest" method="post" accept-charset="utf-8">
     <input type="hidden" name="form_id" value="1">
     <input type="hidden" name="form_name" value="메인센터 참가신청">
     <input type="hidden" name="form_template" value="1">

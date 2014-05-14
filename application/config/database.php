@@ -64,8 +64,24 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+$db['sms']['hostname'] = 'talko.co.kr';
+$db['sms']['username'] = 'qualson';
+$db['sms']['password'] = 'Qualson12#';
+$db['sms']['database'] = 'sms_module';
+$db['sms']['dbdriver'] = 'mysql';
+$db['sms']['dbprefix'] = '';
+$db['sms']['pconnect'] = TRUE;
+$db['sms']['db_debug'] = TRUE;
+$db['sms']['cache_on'] = FALSE;
+$db['sms']['cachedir'] = '';
+$db['sms']['char_set'] = 'utf8';
+$db['sms']['dbcollat'] = 'utf8_general_ci';
+$db['sms']['swap_pre'] = '';
+$db['sms']['autoinit'] = TRUE;
+$db['sms']['stricton'] = FALSE;
+
 $db['localhost']['hostname'] = '211.60.103.140';
-$db['localhost']['username'] = 'develop';
+$db['localhost']['username'] = 'formmgr';
 $db['localhost']['password'] = '123maum$%^';
 $db['localhost']['database'] = 'cs.maum.org';
 $db['localhost']['dbdriver'] = 'mysql';

@@ -26,5 +26,15 @@ class Form_model extends CI_Model {
         $query = $this->db->get();
         return $query;
     }
+
+    function getFormsByRole($role) {
+        $account = $this->session->userdata('logged_in');
+        $this->db->from('fm_form');
+        $this->db->join('fm_account_role','fm_account_role.form_id = fm_form.id');
+        $this->db->where('account_id',$account['id']);
+        $this->db->where('role',$role);
+        $query = $this->db->get();
+        return $query;
+    }
 }
 ?>
