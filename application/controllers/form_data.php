@@ -105,6 +105,11 @@ class Form_Data extends CI_Controller {
         redirect('/','redirect');
     }
 
+    public function change_status_complete($id) {
+        $this->form_data_model->updateFormData($id,array('process_status'=>'처리'));
+        redirect('/home/check','redirect');
+    }
+
     public function change_status_detail($status,$id) {
         $form_data = $this->form_data_model->getFormData($id);
         $status = urldecode($status);

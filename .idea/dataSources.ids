@@ -11,6 +11,7 @@
     <schema name="" catalog="mysql"/>
     <schema name="" catalog="performance_schema"/>
     <schema name="" catalog="should"/>
+    <schema name="" catalog="sms_module"/>
     <schema name="" catalog="test"/>
     <table name="fm_account" schema="" catalog="formmgr" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -25,6 +26,7 @@
     <table name="fm_account_role" schema="" catalog="formmgr" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="form_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="form_name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="account_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="role" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
@@ -35,22 +37,59 @@
       <column name="template" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <column name="classify" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="used_fields" sqlType="VARCHAR" length="500" precision="0" nullable="false" jdbcType="12"/>
+      <column name="view_fields" sqlType="VARCHAR" length="500" precision="0" nullable="false" jdbcType="12"/>
       <column name="is_send_sms_to_user" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
       <column name="is_send_sms_to_admin" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
       <column name="is_send_email_to_user" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
       <column name="is_send_email_to_admin" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
       <column name="sms_content_to_user" sqlType="TEXT" length="65535" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="sms_number_to_user" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="sms_content_to_admin" sqlType="TEXT" length="65535" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="sms_number_to_admin" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="email_content_to_user" sqlType="TEXT" length="65535" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="email_address_to_user" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="email_name_to_user" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="email_content_to_admin" sqlType="TEXT" length="65535" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="email_address_to_admin" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="user_email_template_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="admin_email_template_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="is_use_pay" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
+      <column name="pay_account" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="fm_form_classify" schema="" catalog="formmgr" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="fm_form_data" schema="" catalog="formmgr" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="is_delete" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
+      <column name="form_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="form_name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="form_template" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="regist_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="confirm_date" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="process_status" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="pay_ok" sqlType="TINYINT" length="3" precision="0" nullable="true" jdbcType="-6"/>
+      <column name="pay_status" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="pay_method" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="pay_info" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <column name="user_name" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="phone" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="sms_ok" sqlType="TINYINT" length="3" precision="0" nullable="true" jdbcType="-6"/>
+      <column name="email_ok" sqlType="TINYINT" length="3" precision="0" nullable="true" jdbcType="-6"/>
+      <column name="classify" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="gender" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12"/>
+      <column name="birth" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="school" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="major" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="inquiry_text" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="answer_text" sqlType="TEXT" length="65535" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="memo" sqlType="TEXT" length="65535" precision="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="id" unique="true" columns="id"/>
     </table>
     <table name="fm_form_extra" schema="" catalog="formmgr" type="TABLE">
       <column name="noti_start_minutes" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
@@ -63,6 +102,7 @@
     <table name="fm_form_field" schema="" catalog="formmgr" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="readable_name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="CHARACTER_SETS" schema="" catalog="information_schema" type="SYSTEM TABLE">
@@ -1086,6 +1126,50 @@
       <column name="joinType" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
       <column name="service" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="em_tran" schema="" catalog="sms_module" type="TABLE">
+      <column name="tran_pr" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tran_refkey" sqlType="VARCHAR" length="40" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tran_id" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tran_phone" sqlType="VARCHAR" length="15" precision="0" nullable="false" jdbcType="12"/>
+      <column name="tran_callback" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tran_status" sqlType="CHAR" length="1" precision="0" nullable="true" jdbcType="1"/>
+      <column name="tran_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="tran_rsltdate" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="tran_reportdate" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="tran_rslt" sqlType="CHAR" length="1" precision="0" nullable="true" jdbcType="1"/>
+      <column name="tran_net" sqlType="VARCHAR" length="3" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tran_msg" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tran_etc1" sqlType="VARCHAR" length="64" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tran_etc2" sqlType="VARCHAR" length="16" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tran_etc3" sqlType="VARCHAR" length="16" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tran_etc4" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="tran_type" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="tran_pr"/>
+    </table>
+    <table name="em_tran_mms" schema="" catalog="sms_module" type="TABLE">
+      <column name="mms_seq" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="file_cnt" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="build_yn" sqlType="CHAR" length="1" precision="0" nullable="true" jdbcType="1"/>
+      <column name="mms_body" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="mms_subject" sqlType="VARCHAR" length="40" precision="0" nullable="false" jdbcType="12"/>
+      <column name="file_type1" sqlType="VARCHAR" length="3" precision="0" nullable="true" jdbcType="12"/>
+      <column name="file_type2" sqlType="VARCHAR" length="3" precision="0" nullable="true" jdbcType="12"/>
+      <column name="file_type3" sqlType="VARCHAR" length="3" precision="0" nullable="true" jdbcType="12"/>
+      <column name="file_type4" sqlType="VARCHAR" length="3" precision="0" nullable="true" jdbcType="12"/>
+      <column name="file_type5" sqlType="VARCHAR" length="3" precision="0" nullable="true" jdbcType="12"/>
+      <column name="file_name1" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="file_name2" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="file_name3" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="file_name4" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="file_name5" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="service_dep1" sqlType="VARCHAR" length="3" precision="0" nullable="true" jdbcType="12"/>
+      <column name="service_dep2" sqlType="VARCHAR" length="3" precision="0" nullable="true" jdbcType="12"/>
+      <column name="service_dep3" sqlType="VARCHAR" length="3" precision="0" nullable="true" jdbcType="12"/>
+      <column name="service_dep4" sqlType="VARCHAR" length="3" precision="0" nullable="true" jdbcType="12"/>
+      <column name="service_dep5" sqlType="VARCHAR" length="3" precision="0" nullable="true" jdbcType="12"/>
+      <column name="skn_file_name" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="mms_seq"/>
     </table>
   </data-source>
 </component>

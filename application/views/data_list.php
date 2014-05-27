@@ -18,7 +18,13 @@
         <?php
         foreach($form_data->result() as $row) {
             $row = (array)$row;
-            echo '<tr>';
+            $link = '';
+            if($row['form_template'] == 1)
+                $link = '/form_data/detail/'.$row['id'];
+            else if($row['form_template'] == 2 || $row['form_template'] == 3)
+                $link = '/form_data/inquiry/'.$row['id'];
+
+            echo '<tr class="pointer" onclick="window.location=\''. $link .'\'">';
             for($i=0;$i<count($view_fields);$i++) {
                 echo '<td>'.$row[$view_fields[$i++]].'</td>';
             }

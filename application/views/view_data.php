@@ -23,6 +23,7 @@
                 </td></tr>
 
         </table>
+        <a href="/form_data/form/<?php echo $form_data["form_id"]?>" class="buttongray">신청폼 리스트 보기</a>
         <a href="/form_data/modify/detail/<?php echo $form_data["id"]?>" class="buttongray">정보수정</a>
     </div>
     <div class="block">
