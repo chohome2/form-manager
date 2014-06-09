@@ -15,12 +15,7 @@
                 </td>
                 <td>
                     <span class="info">전체선택 / 전체선택해제</span>
-                    <ul>
-                        <?php
-                        foreach($classify_list->result() as $row) {
-                            echo '<li><input type="checkbox" value="'.$row->name.'" name="classify[]">'.$row->name.'</li>';
-                        }
-                        ?>
+                    <ul id="classify-list">
                     </ul>
                 </td>
                 <td>
@@ -42,7 +37,22 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('input[name=form], input[name="classify[]"], #sms-agree').change(function() {
+        $('input[name=form]').change(function() {
+            $("#classify-list").html("data loading...");
+            $("#phone-list").html("");
+            $.get("/form/getClassifies/" + $("input[name=form]:checked").val() ,function(data) {
+                var html = '';
+                $.each(data.data,function(index,value) {
+                    html += '<li><input type="checkbox" value="' + value + '" name="classify[]">' + value + '</li>';
+                });
+                $("#classify-list").html(html);
+                $('input[name="classify[]"]').change(function() {
+                    selectChange();
+                });
+            },"json");
+        });
+
+        var selectChange = function() {
             var data = {};
             data.form_id = $("input[name=form]:checked").val();
             data.classify = [];
@@ -55,7 +65,6 @@
 
             $("#phone-list").html("data loading...");
             $.get("/sms/getPhoneNumbers",data,function(data) {
-                console.log(data);
                 var html = '';
                 $.each(data.data,function(index,value) {
                     html += '<li><input type="checkbox" value="' + value + '" name="phone[]">' + value + '</li>';
@@ -68,13 +77,15 @@
                     $('input[name="phone[]"]').each(function () {
                         if($(this).is(":checked")) count ++;
                     });
-                    console.log(count);
                     $("#sms-count").html(count);
                     var smsSendText = "전화번호를 선택하세요";
                     if(count == 0) $("#sms-send").html(smsSendText);
                     else $("#sms-send").html("sms 발송하기");
                 });
             },"json");
+        };
+        $('input[name=form], input[name="classify[]"], #sms-agree').change(function() {
+            selectChange();
         });
 
         $("#add-phone").click(function() {
@@ -84,7 +95,6 @@
                 $('input[name="phone[]"]').each(function () {
                     if($(this).is(":checked")) count ++;
                 });
-                console.log(count);
                 $("#sms-count").html(count);
                 var smsSendText = "전화번호를 선택하세요";
                 if(count == 0) $("#sms-send").html(smsSendText);
@@ -94,6 +104,10 @@
 
         $("#sms-send").click(function() {
             if($(this).html() != "sms 발송하기") return;
+            if($("#sms-content").val().trim().length == 0) {
+                alert("내용을 입력하세요.");
+                return;
+            }
             $(this).html("sms 발송중입니다. 기다려주세요.");
             var data = {};
             data.phone_list = [];

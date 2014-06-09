@@ -10,10 +10,8 @@ class Sms extends CI_Controller {
     function index()
     {
             $data = array(
-                "form_list" => $this->form_model->getFormsByRole("sms발송"),
-                "classify_list" => $this->form_classify_model->getFormClassify()
+                "form_list" => $this->form_model->getFormsByRole("sms발송")
             );
-            //$this->sms_model->insertSmsData(array("12345","56789"),"message message");
             $this->load_view('sms',$data);
     }
 

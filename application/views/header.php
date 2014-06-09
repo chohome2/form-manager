@@ -20,7 +20,7 @@
 			<li><a href="/form">신청폼관리</a></li>
 			<li><a href="/account">계정관리</a></li>
 			<li><a href="/sms">SMS발송</a></li>
-			<li><a href="sendemail.php">이메일발송</a></li>
+			<li><a href="/email">이메일발송</a></li>
 			<li><a href="payment_list.php">결제정보</a></li>
 			<li><a href="stats.php">통계</a></li>
 			<li><a href="backup.php">디비백업</a></li>

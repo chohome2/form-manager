@@ -31,8 +31,9 @@ class Form extends CI_Controller {
         {
             $data = array(
                 'id' => $id,
-                'classify_list' => $this->form_classify_model->getFormClassify(),
-                'field_list' => $this->form_field_model->getFormField()
+                'classify_list' => $this->form_classify_model->getFormClassify($id),
+                'field_list' => $this->form_field_model->getFormField(),
+                'template_list' => $this->email_model->getAllEmailTemplates()
             );
             if($id != 'new') {
                 $data['form'] = $this->form_model->getForm($id);
@@ -61,8 +62,8 @@ class Form extends CI_Controller {
                 'email_name_to_user' => $this->input->post('mailname1'),
                 'email_content_to_admin' => $this->input->post('mailtext2'),
                 'email_address_to_admin' => $this->input->post('mailmail2'),
-                'user_email_template_id' => 1,//TODO template처리
-                'admin_email_template_id' => 1,
+                'user_email_template_id' => $this->input->post('user_email_template_id'),
+                'admin_email_template_id' => $this->input->post('admin_email_template_id'),
                 'is_use_pay' => $this->input->post('ispay')?1:0,
                 'pay_account' => $this->input->post('payaccount')
             );
@@ -77,15 +78,50 @@ class Form extends CI_Controller {
         $this->load_view('form_submit_ok',array("message"=>"폼 설정이 완료되었습니다.","path"=>"/form"));
     }
 
-
     public function field()
     {
-        $this->load_view('form_field');
+        $this->load->helper(array('form'));
+
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('field01', 'field01', 'trim|required|xss_clean');
+
+
+        if($this->form_validation->run() == FALSE)
+        {
+            $data = array(
+                'extra_list' => $this->form_field_model->getFormExtra()
+            );
+
+            $this->load_view('form_field',$data);
+        }
+        else
+        {
+            foreach($this->input->post() as $key => $val)
+            {
+                $this->form_field_model->updateFormExtra($key,$val);
+            }
+            redirect('form/field_ok','refresh');
+        }
     }
 
-    public function addClassify($name)
+    public function field_ok()
     {
-        $this->form_classify_model->addFormClassify(urldecode($name));
+        $this->load_view('form_submit_ok',array("message"=>"공통환경설정이 완료되었습니다.","path"=>"/form/field"));
+    }
+
+    public function addClassify()
+    {
+        $this->form_classify_model->addFormClassify($this->input->post('name'), $this->input->post('id'));
+    }
+
+    public function getClassifies($id)
+    {
+        $data = array();
+        foreach($this->form_classify_model->getFormClassify($id)->result() as $row) {
+            $data[] = $row->name;
+        }
+        echo json_encode(array("data"=>$data));
     }
 
     private function makeCSV($data) {

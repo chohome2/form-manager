@@ -11,6 +11,19 @@ class Home extends CI_Controller {
 
     public function index()
 	{
+
+$this->load->library('email');
+
+$this->email->from('admin@maum.org', '마음수련원');
+$this->email->to('chohome@nate.com');
+
+$this->email->subject('환영합니다~');
+$this->email->message('관리자 메일 입니다. 잘 가나요?');
+
+$this->email->send();
+
+//echo $this->email->print_debugger();
+
         $account = $this->session->userdata('logged_in');
         $data = array(
             'status' => '미처리',

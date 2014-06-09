@@ -16,7 +16,7 @@
                 <input type="radio" name="template" value="2" <?php if($form->template == '2') echo 'checked'?>>문의폼
                 <input type="radio" name="template" value="3" <?php if($form->template == '3') echo 'checked'?>>카카오톡문의폼
                 <input type="radio" name="template" value="4" <?php if($form->template == '4') echo 'checked'?>>회원관리폼<br><span class="info"></span></td></tr>
-		<tr><th>현재분류선택</th><td><select name="classify"><option value="none">선택하세요</option>
+		<tr><th>현재분류선택</th><td><select name="classify">
     <?php
     foreach ($classify_list->result() as $row)
     {
@@ -95,7 +95,16 @@
 		<tr>
             <th>이메일 탬플릿 선택</th>
             <td>
-                <select><option>대학생캠프 신청자 메일</option><option>대학생캠프 문의답변 메일</option><option>마음수련 뉴스레터</option></select>
+                <select name="user_email_template_id">
+                    <?php
+                    foreach ($template_list->result() as $row)
+                    {
+                        echo '<option value="'.$row->id.'" ';
+                        if($form->user_email_template_id == $row->id) echo 'selected';
+                        echo '>'.$row->name.'</option>';
+                    }
+                    ?>
+                </select>
             </td>
         </tr>
 		<tr>
@@ -112,7 +121,16 @@
         </tr>
 		<tr>
             <th>이메일 탬플릿 선택</th>
-            <td><select><option>참가신청 관리자 회신</option><option>대학생캠프 문의답변 메일</option><option>마음수련 뉴스레터</option></select></td>
+            <td><select name="admin_email_template_id">
+                    <?php
+                    foreach ($template_list->result() as $row)
+                    {
+                        echo '<option value="'.$row->id.'" ';
+                        if($form->admin_email_template_id == $row->id) echo 'selected';
+                        echo '>'.$row->name.'</option>';
+                    }
+                    ?>
+            </select></td>
         </tr>
 		<tr>
             <th>이메일 본문내용</th>
@@ -148,7 +166,18 @@
 <script>
     $(document).ready(function() {
         $("#addFormClassify").click(function() {
-            $.get("/form/addClassify/" + $("#classifyName").val(),function(data) {
+            if("<?php echo $id?>" == "new") {
+                alert("폼 생성시에는 분류 추가를 할 수 없습니다. 폼 생성 후에 분류를 설정하세요.");
+                return;
+            }
+
+            var data = {
+                id:"<?php echo $id?>",
+                name:$("#classifyName").val()
+            };
+            $.post("/form/addClassify",data,function(data) {
+                //console.log(data);
+                alert("분류추가가 완료되었습니다.");
                 location.reload();
             });
         });

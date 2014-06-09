@@ -19,9 +19,14 @@
             else if($row->process_status == '처리') echo $row->process_status;
 
             echo '</td><td>'.$row->regist_date.'</td><td>'.$row->confirm_date.'</td><td><a href="/form_data/form/'.$row->form_id.'">'.$row->form_name.'</a></td>';
-            echo '<td>이름 | 이메일 | 전화번호</td>';
+            $info = array();
+            if(isset($row->user_name)) $info[] = $row->user_name;
+            if(isset($row->email)) $info[] = $row->email;
+            if(isset($row->phone)) $info[] = $row->phone;
+            echo '<td>'.implode(" | ",$info).'</td>';
             echo '<td>'.$row->pay_status.'</td><td>'.$row->pay_method.'</td></tr>';
         }
         ?>
 	</table>
 </div>
+

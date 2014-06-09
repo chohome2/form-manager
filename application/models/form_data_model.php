@@ -53,5 +53,18 @@ class Form_Data_model extends CI_Model {
 
         return $query;
     }
+
+    function getFormDatasWithEmail($form_id,$classify,$agree) {
+        $this->db->select('email');
+        $this->db->from('fm_form_data');
+        $this->db->where('form_id',$form_id);
+        if($agree == 1)
+            $this->db->where('email_ok',$agree);
+        $this->db->where_in('classify',$classify);
+        $this->db->distinct();
+        $query = $this->db->get();
+
+        return $query;
+    }
 }
 ?>

@@ -37,13 +37,22 @@ class User_Form extends CI_Controller {
         $data['classify'] = $form->classify;
         $data['regist_date'] = date('Y-m-d H:i:s');
         $data['process_status'] = '미처리';
+        $data['is_delete'] = 0;
         $this->form_data_model->insertFormData($data);
+
+        //가입 이메일 유저에게 보내기
+        if($form->is_send_email_to_user == 1 && isset($data['email']) && isset($data['email_ok']) && $data['email_ok'] == 1) {
+            $content = str_replace('[NAME]',$data['user_name'],$form->email_content_to_user);
+            $this->email_model->sendEmail($form->user_email_template_id,$content,$data['email'],$form->email_name_to_user,$form->email_address_to_user);
+        }
 
         //가입 문자 유저에게 보내기
         if($form->is_send_sms_to_user == 1 && isset($data['phone']) && isset($data['sms_ok']) && $data['sms_ok'] == 1) {
             $content = str_replace('[NAME]',$data['user_name'],$form->sms_content_to_user);
             $this->sms_model->insertSmsData(array($data['phone']),$content,$form->sms_number_to_user);
         }
+//TODO 가입문자 어드민에게 보내기 구현
+
         echo 'success';
     }
 

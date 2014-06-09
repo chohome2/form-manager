@@ -12,7 +12,6 @@
     이메일 : <input type="text" name="email"><br>
     이메일수신동의 : <input type="text" name="email_ok"><br>
     문자수신동의 : <input type="text" name="sms_ok"><br>
-    결제수단 : <input type="text" name="pay_method"><br>
     <input type="submit" value="등록">
 </form>
 </body>

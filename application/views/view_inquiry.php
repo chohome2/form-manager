@@ -1,7 +1,3 @@
-<ul class="submenu">
-    <li class="active"><a href="form_list.php">신청폼 리스트</a></li>
-    <li><a href="form_setting.php">신청폼 생성</a></li>
-</ul>
 <div id="content">
     <h1>국내홈페이지 문의</h1>
     <div class="block">
@@ -19,14 +15,15 @@
             ?>
             <!--<tr><th>답변내용</th><td><?php echo $form_data['answer_text']?></td></tr>-->
         </table>
-
+        <?php if($form_data['process_status'] == '미처리' || $form_data['process_status'] == '확인') {?>
         <form method="POST" action="/form_data/answer/<?php echo $form_data['id']?>">
         <table class="data">
             <tr><th>답변내용</th><td><textarea name="answer_text" style="width:100%;height:200px;"></textarea></td></tr>
         </table>
 
-        <input type="submit" class="button" value="답변하기"> <a href="" class="buttongray">인쇄</a>
+        <input type="submit" class="button" value="답변하기">
         </form>
+        <?php } ?>
         <h2><?php echo $form_data['email']?>님의 지난 문의내용 보기</h2>
         <?php
         foreach($inquiry_data->result() as $row) {

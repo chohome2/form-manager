@@ -96,7 +96,12 @@ class Form_Data extends CI_Controller {
     }
 
     public function answer($id) {
-        $this->form_data_model->updateFormData($id,array('answer_text'=>$this->input->post('answer_text')));
+        $data = array(
+            'answer_text'=>$this->input->post('answer_text'),
+            'process_status'=>'처리',
+            'confirm_date'=>date('Y-m-d H:i:s')
+        );
+        $this->form_data_model->updateFormData($id,$data);
         redirect('/form_data/inquiry/'.$id,'redirect');
     }
 
@@ -106,7 +111,7 @@ class Form_Data extends CI_Controller {
     }
 
     public function change_status_complete($id) {
-        $this->form_data_model->updateFormData($id,array('process_status'=>'처리'));
+        $this->form_data_model->updateFormData($id,array('process_status'=>'처리','confirm_date'=>date('Y-m-d H:i:s')));
         redirect('/home/check','redirect');
     }
 
@@ -117,8 +122,11 @@ class Form_Data extends CI_Controller {
             $this->load_view('no_role');
             return;
         }
-
-        $this->form_data_model->updateFormData($id,array('process_status'=>$status));
+        $data = array('process_status'=>$status);
+        if($status == '처리') {
+            $data['confirm_date'] = date('Y-m-d H:i:s');
+        }
+        $this->form_data_model->updateFormData($id,$data);
         redirect('/form_data/detail/'.$id,'redirect');
     }
 
