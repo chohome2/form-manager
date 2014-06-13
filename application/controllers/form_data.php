@@ -102,6 +102,8 @@ class Form_Data extends CI_Controller {
             'confirm_date'=>date('Y-m-d H:i:s')
         );
         $this->form_data_model->updateFormData($id,$data);
+        //TODO 답변용 디폴트 템플릿 생성 필요
+        $this->email_model->sendEmail(1,$this->input->post('answer_text'),array($this->input->post('email')));
         redirect('/form_data/inquiry/'.$id,'redirect');
     }
 
