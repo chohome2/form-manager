@@ -115,7 +115,9 @@ class Form_Data extends CI_Controller {
         redirect('/home/check','redirect');
     }
 
-    public function change_status_detail($status,$id) {
+    public function change_status($status,$id,$path) {
+        $status_list = array('미처리','확인','처리','삭제');
+        $status = $status_list[$status];
         $form_data = $this->form_data_model->getFormData($id);
         $status = urldecode($status);
         if($status == '삭제' && !$this->account_model->isRole('삭제',$form_data->form_id)) {
@@ -130,11 +132,6 @@ class Form_Data extends CI_Controller {
             $data['confirm_date'] = NULL;
         }
         $this->form_data_model->updateFormData($id,$data);
-        redirect('/form_data/detail/'.$id,'redirect');
-    }
-
-    public function change_status_inquiry($status,$id) {
-        $this->form_data_model->updateFormData($id,array('process_status'=>urldecode($status)));
-        redirect('/form_data/inquiry/'.$id,'redirect');
+        redirect('/form_data/'.$path.'/'.$id,'redirect');
     }
 }

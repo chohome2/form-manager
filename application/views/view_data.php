@@ -1,10 +1,10 @@
 <div id="content">
     <h1><?php echo $form_data->form_name?></h1>
     <div class="block">
-        <a href="/form_data/change_status_detail/처리/<?php echo $form_data->id?>" class="button">처리</a>
-        <a href="/form_data/change_status_detail/확인/<?php echo $form_data->id?>" class="button">확인</a>
-        <a href="/form_data/change_status_detail/미처리/<?php echo $form_data->id?>" class="button">미처리</a>
-        <a href="/form_data/change_status_detail/삭제/<?php echo $form_data->id?>" class="button">삭제</a>
+        <a href="/form_data/change_status/2/<?php echo $form_data->id?>/detail" class="button">처리</a>
+        <a href="/form_data/change_status/1/<?php echo $form_data->id?>/detail" class="button">확인</a>
+        <a href="/form_data/change_status/0/<?php echo $form_data->id?>/detail" class="button">미처리</a>
+        <a href="/form_data/change_status/3/<?php echo $form_data->id?>/detail" class="button">삭제</a>
         <a href="" class="buttongray">참가확인 이메일 보내기</a> <a href="" class="buttongray">문자 보내기</a>
         <br><br><span class="info">* 삭제처리하면 목록에는 안나타나지만 DB에는 있다. 삭제된 데이터는 최고관리자만 볼 수 있다.</span>
         <table class="data">

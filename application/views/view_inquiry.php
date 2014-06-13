@@ -1,10 +1,10 @@
 <div id="content">
     <h1>국내홈페이지 문의</h1>
     <div class="block">
-        <a href="/form_data/change_status_inquiry/처리/<?php echo $form_data->id?>" class="button">처리</a>
-        <a href="/form_data/change_status_inquiry/확인/<?php echo $form_data->id?>" class="button">확인</a>
-        <a href="/form_data/change_status_inquiry/미처리/<?php echo $form_data->id?>" class="button">미처리</a>
-        <a href="/form_data/change_status_inquiry/삭제/<?php echo $form_data->id?>" class="button">삭제</a>
+        <a href="/form_data/change_status/2/<?php echo $form_data->id?>/inquiry" class="button">처리</a>
+        <a href="/form_data/change_status/1/<?php echo $form_data->id?>/inquiry" class="button">확인</a>
+        <a href="/form_data/change_status/0/<?php echo $form_data->id?>/inquiry" class="button">미처리</a>
+        <a href="/form_data/change_status/3/<?php echo $form_data->id?>/inquiry" class="button">삭제</a>
         <table class="data">
             <?php
             $form_data = (array)$form_data;
