@@ -53,5 +53,6 @@ class VerifyLogin extends CI_Controller {
             return false;
         }
     }
+
 }
 ?>

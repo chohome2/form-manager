@@ -106,7 +106,7 @@ class Form_Data extends CI_Controller {
     }
 
     public function change_status_confirm($id) {
-        $this->form_data_model->updateFormData($id,array('process_status'=>'확인'));
+        $this->form_data_model->updateFormData($id,array('process_status'=>'확인','confirm_date'=>NULL));
         redirect('/','redirect');
     }
 
@@ -125,6 +125,9 @@ class Form_Data extends CI_Controller {
         $data = array('process_status'=>$status);
         if($status == '처리') {
             $data['confirm_date'] = date('Y-m-d H:i:s');
+        }
+        else if($status == '미처리' || $status == '확인') {
+            $data['confirm_date'] = NULL;
         }
         $this->form_data_model->updateFormData($id,$data);
         redirect('/form_data/detail/'.$id,'redirect');

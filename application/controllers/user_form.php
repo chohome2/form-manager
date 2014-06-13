@@ -16,6 +16,11 @@ class User_Form extends CI_Controller {
         $this->load->view('user_form_request');
     }
 
+    public function local()
+    {
+        $this->load->view('user_form_local');
+    }
+
     public function regist()
     {
         $data = array();
@@ -30,6 +35,7 @@ class User_Form extends CI_Controller {
             return;
         }
 
+
         $form = $this->form_model->getForm($data['form_id']);
 
         $data['form_name'] = $form->name;
@@ -38,12 +44,31 @@ class User_Form extends CI_Controller {
         $data['regist_date'] = date('Y-m-d H:i:s');
         $data['process_status'] = '미처리';
         $data['is_delete'] = 0;
+
+
+        //지역 수련 담당자 전화번호 목록 필드가 존재하는 경우, 체크코드값을 발급하고 확인 링크를 문자로 보낸다.
+        $check_code = uniqid();
+        if(isset($data['local_phone_list'])) {
+            $check_code = substr($check_code,12,1).substr($check_code,0,1).substr($check_code,11,1).substr($check_code,1,1).substr($check_code,10,1).substr($check_code,2,1)
+                .substr($check_code,9,1).substr($check_code,3,1).substr($check_code,6,1).substr($check_code,4,1).substr($check_code,7,1).substr($check_code,5,1).substr($check_code,8,1);
+
+            $data['check_code'] = $check_code;
+        }
         $this->form_data_model->insertFormData($data);
+
+
+        if(isset($data['local_phone_list'])) {
+            $phone_list = explode(',',$data['local_phone_list']);
+            foreach($phone_list as $phone) {
+                $content = '링크누르세요. http://chk.maum.org/?c='.$check_code;
+                $this->sms_model->insertSmsData(array($phone),$content);
+            }
+        }
 
         //가입 이메일 유저에게 보내기
         if($form->is_send_email_to_user == 1 && isset($data['email']) && isset($data['email_ok']) && $data['email_ok'] == 1) {
             $content = str_replace('[NAME]',$data['user_name'],$form->email_content_to_user);
-            $this->email_model->sendEmail($form->user_email_template_id,$content,$data['email'],$form->email_name_to_user,$form->email_address_to_user);
+            $this->email_model->sendEmail($form->user_email_template_id,$content,array($data['email']),$form->email_name_to_user,$form->email_address_to_user);
         }
 
         //가입 문자 유저에게 보내기

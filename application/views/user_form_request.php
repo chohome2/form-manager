@@ -5,8 +5,6 @@
 <body>
 <form action="/user_form/regist" method="post" accept-charset="utf-8">
     <input type="hidden" name="form_id" value="3">
-    <input type="hidden" name="form_name" value="마음수련홈페이지 한국 문의">
-    <input type="hidden" name="form_template" value="2">
     이메일 : <input type="text" name="email"><br>
     문의내용 : <input type="text" name="inquiry_text"><br>
     <input type="submit" value="등록">

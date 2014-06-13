@@ -10,6 +10,7 @@
             $form_data = (array)$form_data;
             $view_fields = explode("\t",$form->used_fields);
             for($i=0;$i<count($view_fields);$i+=2) {
+                if($view_fields[$i] == 'process_status' || $view_fields[$i] == 'regist_date' || $view_fields[$i] == 'confirm_date' ) continue;
                 echo '<tr><th>'.$view_fields[$i+1].'</th><td><input type="text" name="'.$view_fields[$i].'" value="'.$form_data[$view_fields[$i]].'"></td></tr>';
             }
             ?>
