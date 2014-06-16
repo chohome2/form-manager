@@ -21,10 +21,12 @@
 			<li><a href="/account">계정관리</a></li>
 			<li><a href="/sms">SMS발송</a></li>
 			<li><a href="/email">이메일발송</a></li>
+            <!--
 			<li><a href="payment_list.php">결제정보</a></li>
 			<li><a href="stats.php">통계</a></li>
 			<li><a href="backup.php">디비백업</a></li>
 			<li><a href="doc.php">도큐먼트</a></li>
+			-->
 		</ul>
 		<div class="loginfo"><a href="/account/logout">로그아웃</a></div>
 	</div>

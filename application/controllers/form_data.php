@@ -118,7 +118,7 @@ class Form_Data extends CI_Controller {
     }
 
     public function change_status($status,$id,$path) {
-        $status_list = array('미처리','확인','처리','삭제');
+        $status_list = array('미처리','확인','처리','삭제','취소');
         $status = $status_list[$status];
         $form_data = $this->form_data_model->getFormData($id);
         $status = urldecode($status);

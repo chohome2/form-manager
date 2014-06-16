@@ -46,7 +46,7 @@ class Form extends CI_Controller {
             $data = array(
                 'name' => $this->input->post('name'),
                 'template' => $this->input->post('template'),
-                'classify' => $this->input->post('classify'),
+                'classify' => $this->input->post('classify')?$this->input->post('classify'):"",
                 'used_fields' => $this->makeCSV($this->input->post('use_field')),
                 'view_fields' => $this->makeCSV($this->input->post('view_field')),
                 'is_send_sms_to_user' => $this->input->post('smsok1'),

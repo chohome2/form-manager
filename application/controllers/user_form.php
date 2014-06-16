@@ -64,20 +64,29 @@ class User_Form extends CI_Controller {
                 $this->sms_model->insertSmsData(array($phone),$content);
             }
         }
-
+//TODO 문자, 메일 보낼때 치환코드 사용로직 추가
         //가입 이메일 유저에게 보내기
-        if($form->is_send_email_to_user == 1 && isset($data['email']) && isset($data['email_ok']) && $data['email_ok'] == 1) {
+        if($form->is_send_email_to_user == 1 && isset($data['email']) /*&& isset($data['email_ok']) && $data['email_ok'] == 1*/) {
             $content = str_replace('[NAME]',$data['user_name'],$form->email_content_to_user);
             $this->email_model->sendEmail($form->user_email_template_id,$content,array($data['email']),$form->email_name_to_user,$form->email_address_to_user);
         }
 
+        //가입 이메일 관리자에게 보내기
+        if($form->is_send_email_to_admin == 1) {
+            $content = str_replace('[NAME]',$data['user_name'],$form->email_content_to_admin);
+            $this->email_model->sendEmail($form->admin_email_template_id,$content,array($form->email_address_to_admin),$form->email_name_to_user,$form->email_address_to_user);
+        }
+
         //가입 문자 유저에게 보내기
-        if($form->is_send_sms_to_user == 1 && isset($data['phone']) && isset($data['sms_ok']) && $data['sms_ok'] == 1) {
+        if($form->is_send_sms_to_user == 1 && isset($data['phone']) /*&& isset($data['sms_ok']) && $data['sms_ok'] == 1*/) {
             $content = str_replace('[NAME]',$data['user_name'],$form->sms_content_to_user);
             $this->sms_model->insertSmsData(array($data['phone']),$content,$form->sms_number_to_user);
         }
-//TODO 가입문자 어드민에게 보내기 구현
-
+        //가입 문자 어드민에게 보내기
+        if($form->is_send_sms_to_admin == 1) {
+            $content = str_replace('[NAME]',$data['user_name'],$form->sms_content_to_admin);
+            $this->sms_model->insertSmsData(array($form->sms_number_to_admin),$content);
+        }
         echo 'success';
     }
 

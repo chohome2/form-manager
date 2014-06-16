@@ -2,6 +2,7 @@
 class Email_model extends CI_Model {
     function __construct() {
         parent::__construct();
+        require 'mailer/PHPMailerAutoload.php';
     }
 
     function getEmailTemplate($id) {
@@ -32,8 +33,6 @@ class Email_model extends CI_Model {
     }
 
     function sendEmail($templateId, $content, $to, $fromName = '마음수련원', $fromEmail = 'admin@maum.org') {
-        require 'mailer/PHPMailerAutoload.php';
-
         $template = $this->getEmailTemplate($templateId);
         $content = $template->header . $content . $template->footer;
         $subject = $template->title;

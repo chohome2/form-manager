@@ -12,6 +12,13 @@ class Form_Extra extends CI_Controller {
         $data = array();
         if($type == '1')
             $data = explode(",",$this->form_field_model->getFormExtraData($name));
+        else if($type == '2') {
+            $lines = explode("\n",$this->form_field_model->getFormExtraData($name));
+            foreach ($lines as $line) {
+                list($local,$centers) = explode("-",$line);
+                $data[$local] = explode(",",$centers);
+            }
+        }
         echo json_encode(array('data' => $data));
     }
 

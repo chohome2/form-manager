@@ -47,7 +47,6 @@ class Email extends CI_Controller {
                 'name' => $this->input->post('name'),
                 'title' => $this->input->post('title'),
                 'header' => $this->input->post('header'),
-                'body' => $this->input->post('body'),
                 'footer' => $this->input->post('footer')
             );
             $this->email_model->upsertTemplate($data,$id);
