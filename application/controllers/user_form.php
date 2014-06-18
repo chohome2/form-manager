@@ -18,9 +18,28 @@ class User_Form extends CI_Controller {
 
     public function local()
     {
-        $this->load->view('user_form_local');
+        $this->load->view('user_form,_local');
     }
 
+    public function form_data() {
+        $data = array(
+            'form_id' => $_GET['form_id'],
+            'user_name' => $_GET['user_name'],
+            'email' => $_GET['email'],
+            'phone' => $_GET['phone']
+        );
+/*
+        $data = array(
+            'form_id' => '1',
+            'user_name' => '조태호',
+            'email' => 'chohome2@gmail.com',
+            'phone' => '010-9820-6402'
+        );
+*/
+        $form_data = $this->form_data_model->getFormDataWithData($data);
+
+        echo json_encode($form_data);
+    }
     public function regist()
     {
         $data = array();

@@ -66,5 +66,17 @@ class Form_Data_model extends CI_Model {
 
         return $query;
     }
+
+    function getFormDataWithData($data) {
+        $this->db->from('fm_form_data');
+        $this->db->where('form_id',$data['form_id']);
+        $this->db->where('user_name',$data['user_name']);
+        $this->db->where('email',$data['email']);
+        $this->db->where('phone',$data['phone']);
+        $query = $this->db->get();
+        foreach($query->result() as $row)
+            return (array)$row;
+        return array("id" => "0");
+    }
 }
 ?>

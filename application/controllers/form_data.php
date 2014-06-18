@@ -102,8 +102,9 @@ class Form_Data extends CI_Controller {
             'confirm_date'=>date('Y-m-d H:i:s')
         );
         $this->form_data_model->updateFormData($id,$data);
+
         //TODO 답변용 디폴트 템플릿 생성 필요
-        $this->email_model->sendEmail(1,$this->input->post('answer_text'),array($this->input->post('email')));
+        $this->email_model->sendEmail($this->input->post('inquiry_email_template_id'),$this->input->post('answer_text'),array($this->input->post('email')));
         redirect('/form_data/inquiry/'.$id,'redirect');
     }
 
@@ -121,6 +122,7 @@ class Form_Data extends CI_Controller {
         $status_list = array('미처리','확인','처리','삭제','취소');
         $status = $status_list[$status];
         $form_data = $this->form_data_model->getFormData($id);
+
         $status = urldecode($status);
         if($status == '삭제' && !$this->account_model->isRole('삭제',$form_data->form_id)) {
             $this->load_view('no_role');
@@ -133,7 +135,67 @@ class Form_Data extends CI_Controller {
         else if($status == '미처리' || $status == '확인') {
             $data['confirm_date'] = NULL;
         }
+
         $this->form_data_model->updateFormData($id,$data);
+
         redirect('/form_data/'.$path.'/'.$id,'redirect');
+    }
+
+    public function pay_cancel($id) {
+        $form_data = $this->form_data_model->getFormData($id);
+        $json = trim($this->CallAPI("POST",PAY_CANCEL_API,array("tid"=>$form_data->pay_id,"msg"=>"")));
+
+        $cancel_data = json_decode($json);
+        if($cancel_data->rescode != '00') {
+            $this->load_view('form_submit_ok',array("message"=>"결제취소가 실패하였습니다. 이니시스 측에 문의하세요.","path"=>"/form_data/detail/".$id));
+            return;
+        }
+        $data = array(
+            "pay_status" => "결제취소",
+            "pay_cancel_date" => $cancel_data->canceldate,
+            "pay_cancel_time" => $cancel_data->canceltime,
+            "pay_cancel_cash_id" => $cancel_data->cshr
+        );
+        $this->form_data_model->updateFormData($id,$data);
+
+        redirect('/form_data/detail/'.$id,'redirect');
+    }
+
+    public function pay_force_cancel($id) {
+        $data = array(
+            "pay_status" => "결제취소"
+        );
+        $this->form_data_model->updateFormData($id,$data);
+        redirect('/form_data/detail/'.$id,'redirect');
+    }
+
+    private function CallAPI($method, $url, $data = false)
+    {
+        $curl = curl_init();
+
+        switch ($method)
+        {
+            case "POST":
+                curl_setopt($curl, CURLOPT_POST, 1);
+
+                if ($data)
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                break;
+            case "PUT":
+                curl_setopt($curl, CURLOPT_PUT, 1);
+                break;
+            default:
+                if ($data)
+                    $url = sprintf("%s?%s", $url, http_build_query($data));
+        }
+
+        // Optional Authentication:
+        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        curl_setopt($curl, CURLOPT_USERPWD, "username:password");
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        return curl_exec($curl);
     }
 }

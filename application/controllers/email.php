@@ -85,7 +85,6 @@ class Email extends CI_Controller {
 
     function sendEmail()
     {
-        //TODO 메일 보내기 로직 개발
         $emailList = $_POST['email_list'];
         $message = $_POST['message'];
         $templateId = $_POST['template_id'];

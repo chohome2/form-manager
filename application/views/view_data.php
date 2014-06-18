@@ -6,6 +6,12 @@
         <a href="/form_data/change_status/0/<?php echo $form_data->id?>/detail" class="button">미처리</a>
         <a href="/form_data/change_status/3/<?php echo $form_data->id?>/detail" class="button">삭제</a>
         <a href="/form_data/change_status/4/<?php echo $form_data->id?>/detail" class="button">취소</a>
+        <?php if($form_data->pay_id) {?>
+        <a href="/form_data/pay_cancel/<?php echo $form_data->id?>" class="button">결제취소</a>
+        <?php }?>
+        <?php if($form_data->pay_id) {?>
+        <a href="/form_data/pay_force_cancel/<?php echo $form_data->id?>" class="button">강제결제취소</a>
+        <?php }?>
         <!--<a href="" class="buttongray">참가확인 이메일 보내기</a> <a href="" class="buttongray">문자 보내기</a>-->
         <table class="data">
             <?php

@@ -74,11 +74,12 @@
         </tr>
 		<tr>
             <th>문자내용</th><td><textarea name="smstext2" maxlength="80" style="width:100%;"><?php echo $form->sms_content_to_admin;?></textarea><br>
-			<strong>[NAME]</strong> : 신청자이름<br><strong>[PHONE]</strong> : 신청자연락처<br> <strong>[EMAIL]</strong> : 신청자이메일<br><strong>[PAYMENTMSG]</strong> : 결제 관련 메세지</td></tr>
+                <strong>치환코드</strong><br>
+                [NAME] : 신청자이름</td></tr>
 		
 		
 		<tr>
-            <td rowspan=7 class="category">이메일설정</td>
+            <td rowspan=8 class="category">이메일설정</td>
             <th>신청자에게 이메일보내기</th>
             <td>
                 <input type="radio" name="mailok1" value="1" <?php if($form->is_send_email_to_user == 1) echo 'checked';?>>YES
@@ -109,7 +110,8 @@
         </tr>
 		<tr>
             <th>이메일 본문내용</th>
-            <td><textarea name="mailtext1" maxlength="80" style="width:100%;"><?php echo $form->email_content_to_user;?></textarea></td>
+            <td><textarea name="mailtext1" maxlength="80" style="width:100%;"><?php echo $form->email_content_to_user;?></textarea><br><strong>치환코드</strong><br>
+                [NAME] : 신청자이름<br>[INFO] : 신청정보</td>
         </tr>
 		<tr>
             <th>관리자에게 이메일보내기</th>
@@ -135,6 +137,19 @@
 		<tr>
             <th>이메일 본문내용</th>
             <td><textarea name="mailtext2" maxlength="80" style="width:100%;"><?php echo $form->email_content_to_admin;?></textarea></td>
+        </tr>
+        <tr>
+            <th>문의폼 답변시 사용할<br>이메일 탬플릿 선택</th>
+            <td><select name="inquiry_email_template_id">
+                    <?php
+                    foreach ($template_list->result() as $row)
+                    {
+                        echo '<option value="'.$row->id.'" ';
+                        if($form->inquiry_email_template_id == $row->id) echo 'selected';
+                        echo '>'.$row->name.'</option>';
+                    }
+                    ?>
+                </select> <span class="info">*문의폼에서만 사용</span></td>
         </tr>
 		
 		

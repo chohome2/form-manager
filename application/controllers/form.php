@@ -64,6 +64,7 @@ class Form extends CI_Controller {
                 'email_address_to_admin' => $this->input->post('mailmail2'),
                 'user_email_template_id' => $this->input->post('user_email_template_id'),
                 'admin_email_template_id' => $this->input->post('admin_email_template_id'),
+                'inquiry_email_template_id' => $this->input->post('inquiry_email_template_id'),
                 'is_use_pay' => $this->input->post('ispay')?1:0,
                 'pay_account' => $this->input->post('payaccount')
             );

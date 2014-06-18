@@ -21,6 +21,7 @@
             <tr><th>답변내용</th><td><textarea name="answer_text" style="width:100%;height:200px;"></textarea></td></tr>
         </table>
         <input type="hidden" name="email" value="<?php echo $form_data['email']?>">
+            <input type="hidden" name="inquiry_email_template_id" value="<?php echo $form->inquiry_email_template_id?>">
         <input type="submit" class="button" value="답변하기">
         </form>
         <?php } ?>
