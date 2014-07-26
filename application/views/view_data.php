@@ -36,7 +36,7 @@
     if($form->is_use_pay == 1) {
     ?>
     <div class="block">
-        <h3>결제정보</h3>
+        <h3><br>결제정보</h3>
         <table class="data">
             <tr><th>결제상태</th><td><?php echo $form_data['pay_status']?></td></tr>
             <tr><th>결제수단</th><td><?php echo $form_data['pay_method']?></td></tr>
@@ -44,6 +44,18 @@
             <tr><th>결제금액</th><td><?php echo $form_data['pay_approval_amount']?></td></tr>
             <tr><th>거래번호</th><td><?php echo $form_data['pay_id']?></td></tr>
             <tr><th>주문번호</th><td><?php echo $form_data['pay_shop_id']?></td></tr>
+            <tr><th>결제취소시간</th><td><?php echo $form_data['pay_cancel_date'].' '.$form_data['pay_cancel_time']?></td></tr>
+            <tr><th>결제취소 현금영수증번호</th><td><?php echo $form_data['pay_cancel_cash_id']?></td></tr>
+            <tr><th>결제취소사유</th><td><?php echo $form_data['pay_cancel_reason']?></td></tr>
+            <tr><th>결제승인코드</th><td><?php echo $form_data['pay_approval_code']?></td></tr>
+            <tr><th>카드종류코드</th><td><?php echo $form_data['pay_card_type_code']?></td></tr>
+            <tr><th>카드회사코드</th><td><?php echo $form_data['pay_card_company_code']?></td></tr>
+            <tr><th>할부개월</th><td><?php echo $form_data['pay_installment_month']?></td></tr>
+            <tr><th>무통장입금계좌번호</th><td><?php echo $form_data['pay_vbank_account_number']?></td></tr>
+            <tr><th>무통장입금은행코드</th><td><?php echo $form_data['pay_vbank_bank_code']?></td></tr>
+            <tr><th>무통장예금주명</th><td><?php echo $form_data['pay_vbank_depositor']?></td></tr>
+            <tr><th>무통장입금만료일</th><td><?php echo $form_data['pay_vbank_scheduled_date']?></td></tr>
+            <tr><th>무통장입금자명</th><td><?php echo $form_data['pay_vbank_person_name']?></td></tr>
         </table>
     </div>
     <?php

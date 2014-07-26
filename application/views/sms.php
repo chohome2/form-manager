@@ -14,12 +14,20 @@
                     </ul>
                 </td>
                 <td>
-                    <span class="info">전체선택 / 전체선택해제</span>
+                    <span class="info">
+                        <span id="selectAllClassify" style="cursor:pointer;">전체선택</span>
+                        /
+                        <span id="unselectAllClassify" style="cursor:pointer;">전체선택해제</span>
+                    </span>
                     <ul id="classify-list">
                     </ul>
                 </td>
                 <td>
-                    <span class="info">전체선택 / 전체선택해제</span>
+                    <span class="info">
+                        <span id="selectAllItem" style="cursor:pointer;">전체선택</span>
+                        /
+                        <span id="unselectAllItem" style="cursor:pointer;">전체선택해제</span>
+                    </span>
                     <ul id="phone-list">
                     </ul>
                 </td>
@@ -122,6 +130,33 @@
             });
         });
 
+        $("#selectAllClassify").click(function() {
+            $("input[name='classify[]']:checkbox").each(function() {
+                $(this).prop("checked", true);
+            });
+            selectChange();
+        });
+        $("#unselectAllClassify").click(function() {
+            $("input[name='classify[]']:checkbox").each(function() {
+                $(this).prop("checked", false);
+            });
+            selectChange();
+        });
 
+        $("#selectAllItem").click(function() {
+            $("input[name='phone[]']:checkbox").each(function() {
+                $(this).prop("checked", true);
+            });
+            $('input[name="phone[]"]').trigger("change");
+        });
+
+        $("#unselectAllItem").click(function() {
+            $("input[name='phone[]']:checkbox").each(function() {
+                $(this).prop("checked", false);
+            });
+            $('input[name="phone[]"]').trigger("change");
+        });
     });
+
+
 </script>

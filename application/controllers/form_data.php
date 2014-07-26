@@ -18,6 +18,12 @@ class Form_Data extends CI_Controller {
             return;
         }
 
+        $account = $this->session->userdata('logged_in');
+        if($form_data->process_status == '삭제' && $account['account_id'] != 'admin') {
+            $this->load_view('no_role');
+            return;
+        }
+
         $data = array(
             'form' => $this->form_model->getForm($form_data->form_id),
             'form_data' => $form_data
@@ -105,6 +111,12 @@ class Form_Data extends CI_Controller {
 
         //TODO 답변용 디폴트 템플릿 생성 필요
         $this->email_model->sendEmail($this->input->post('inquiry_email_template_id'),$this->input->post('answer_text'),array($this->input->post('email')));
+
+        //전화번호가 있을 시, 문의자에게 문자보내기기
+        $form_data = $this->form_data_model->getFormData($id);
+        if($form_data->phone) {
+            $this->sms_model->insertSmsData(array($form_data->phone),"마음수련원의 이메일답변이 발송되었습니다");
+        }
         redirect('/form_data/inquiry/'.$id,'redirect');
     }
 
@@ -129,7 +141,7 @@ class Form_Data extends CI_Controller {
             return;
         }
         $data = array('process_status'=>$status);
-        if($status == '처리') {
+        if($status == '처리' || $status == '삭제') {
             $data['confirm_date'] = date('Y-m-d H:i:s');
         }
         else if($status == '미처리' || $status == '확인') {

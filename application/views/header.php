@@ -18,7 +18,12 @@
 		<ul id="nav">
 			<li class="active"><a href="/">HOME</a></li>
 			<li><a href="/form">신청폼관리</a></li>
+            <?php
+            $account = $this->session->userdata('logged_in');
+            if($account['account_id'] == 'admin') {
+            ?>
 			<li><a href="/account">계정관리</a></li>
+            <?php }?>
 			<li><a href="/sms">SMS발송</a></li>
 			<li><a href="/email">이메일발송</a></li>
             <!--

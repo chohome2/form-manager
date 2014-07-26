@@ -14,7 +14,7 @@
 			<tr><th>부서</th><td><select name="department"><option value="법인" <?php if($account->department == '법인') echo 'selected'?>>법인</option><option value="참출판사" <?php if($account->department == '참출판사') echo 'selected'?>>참출판사</option><option value="대학생회" <?php if($account->department == '대학생회') echo 'selected'?>>대학생회</option><option value="청소년회" <?php if($account->department == '청소년회') echo 'selected'?>>청소년회</option><option value="교원회" <?php if($account->department == '교원회') echo 'selected'?>>교원회</option></select></td></tr>
 			<tr><th>연락처</th><td><input name="phone" type="text" value="<?php echo $account->phone?>"></td></tr>
 			<tr><th>이메일</th><td><input name="email" type="text" value="<?php echo $account->email?>"></td></tr>
-			<tr><th>권한설정</th><td>*오직 최고마스터만 볼 수 있음 - 폼전체가 나옴<br><br>
+			<tr><th>권한설정</th><td>
     <?php
     //print_r($account_role);
     foreach($form->result() as $row) {

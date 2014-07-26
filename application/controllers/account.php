@@ -10,6 +10,12 @@ class Account extends CI_Controller {
 
     public function index()
     {
+        $account = $this->session->userdata('logged_in');
+        if($account['account_id'] != 'admin') {
+            $this->load_view('no_role');
+            return;
+        }
+
         $data = array(
             'account_role_list' => $this->account_model->getAccountRoles(),
             'account_list' => $this->account_model->getAccounts()
@@ -19,6 +25,12 @@ class Account extends CI_Controller {
 
     public function setting($id)
     {
+        $account = $this->session->userdata('logged_in');
+        if($account['account_id'] != 'admin') {
+            $this->load_view('no_role');
+            return;
+        }
+
         $this->load->helper(array('form'));
 
         $this->load->library('form_validation');

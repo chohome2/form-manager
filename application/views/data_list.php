@@ -16,8 +16,12 @@
         <th></th></tr>
 
         <?php
+        $account = $this->session->userdata('logged_in');
+        if($account['account_id'] != 'admin') {
+        }
         foreach($form_data->result() as $row) {
             $row = (array)$row;
+            if($account['account_id'] != 'admin' && $row['process_status'] == '삭제') continue;
             $link = '';
             if($row['form_template'] == 1)
                 $link = '/form_data/detail/'.$row['id'];

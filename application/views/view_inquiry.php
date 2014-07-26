@@ -1,5 +1,5 @@
 <div id="content">
-    <h1>국내홈페이지 문의</h1>
+    <h1><?php echo $form_data->form_name?></h1>
     <div class="block">
         <a href="/form_data/change_status/2/<?php echo $form_data->id?>/inquiry" class="button">처리</a>
         <a href="/form_data/change_status/1/<?php echo $form_data->id?>/inquiry" class="button">확인</a>
