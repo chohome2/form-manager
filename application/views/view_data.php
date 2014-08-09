@@ -3,14 +3,14 @@
     <div class="block">
         <a href="/form_data/change_status/2/<?php echo $form_data->id?>/detail" class="button">처리</a>
         <a href="/form_data/change_status/1/<?php echo $form_data->id?>/detail" class="button">확인</a>
-        <a href="/form_data/change_status/0/<?php echo $form_data->id?>/detail" class="button">미처리</a>
-        <a href="/form_data/change_status/3/<?php echo $form_data->id?>/detail" class="button">삭제</a>
-        <a href="/form_data/change_status/4/<?php echo $form_data->id?>/detail" class="button">취소</a>
+        <a onclick="if(confirm('미처리 상태로 되돌리시겠습니까?')) location.href='/form_data/change_status/0/<?php echo $form_data->id?>/detail';" class="button" style="cursor:pointer;">미처리</a>
+        <a onclick="if(confirm('정말로 삭제하시겠습니까?')) location.href='/form_data/change_status/3/<?php echo $form_data->id?>/detail';" class="button" style="cursor:pointer;">삭제</a>
+        <a onclick="if(confirm('신청을 취소하시겠습니까?')) location.href='/form_data/change_status/4/<?php echo $form_data->id?>/detail';" class="button" style="cursor:pointer;">취소</a>
         <?php if($form_data->pay_id) {?>
-        <a href="/form_data/pay_cancel/<?php echo $form_data->id?>" class="button">결제취소</a>
+            <a onclick="if(confirm('결제를 취소하시겠습니까?')) location.href='/form_data/pay_cancel/<?php echo $form_data->id?>';" class="button" style="cursor:pointer;">결제취소</a>
         <?php }?>
         <?php if($form_data->pay_id) {?>
-        <a href="/form_data/pay_force_cancel/<?php echo $form_data->id?>" class="button">강제결제취소</a>
+            <a onclick="if(confirm('실제 결제 상태와 상관없이 결제 취소로 표시합니다. 진행하시겠습니까?')) location.href='/form_data/pay_force_cancel/<?php echo $form_data->id?>';" class="button" style="cursor:pointer;">강제결제취소</a>
         <?php }?>
         <!--<a href="" class="buttongray">참가확인 이메일 보내기</a> <a href="" class="buttongray">문자 보내기</a>-->
         <table class="data">

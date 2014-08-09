@@ -141,10 +141,10 @@ class Form_Data extends CI_Controller {
             return;
         }
         $data = array('process_status'=>$status);
-        if($status == '처리' || $status == '삭제') {
+        if($status == '확인' || $status == '처리' || $status == '삭제' || $status == '취소') {
             $data['confirm_date'] = date('Y-m-d H:i:s');
         }
-        else if($status == '미처리' || $status == '확인') {
+        else if($status == '미처리' ) {
             $data['confirm_date'] = NULL;
         }
 

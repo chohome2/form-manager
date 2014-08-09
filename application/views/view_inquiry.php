@@ -3,8 +3,9 @@
     <div class="block">
         <a href="/form_data/change_status/2/<?php echo $form_data->id?>/inquiry" class="button">처리</a>
         <a href="/form_data/change_status/1/<?php echo $form_data->id?>/inquiry" class="button">확인</a>
-        <a href="/form_data/change_status/0/<?php echo $form_data->id?>/inquiry" class="button">미처리</a>
-        <a href="/form_data/change_status/3/<?php echo $form_data->id?>/inquiry" class="button">삭제</a>
+        <a onclick="if(confirm('미처리 상태로 되돌리시겠습니까?')) location.href='/form_data/change_status/0/<?php echo $form_data->id?>/inquiry';" class="button" style="cursor:pointer;">미처리</a>
+        <a onclick="if(confirm('정말로 삭제하시겠습니까?')) location.href='/form_data/change_status/3/<?php echo $form_data->id?>/inquiry';" class="button" style="cursor:pointer;">삭제</a>
+
         <table class="data">
             <?php
             $form_data = (array)$form_data;
